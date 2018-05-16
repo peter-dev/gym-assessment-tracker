@@ -1,0 +1,12 @@
+# IntelliJ
+.idea
+*.iml
+*.ipr
+*.iws
+
+# Play Framework
+documentation
+lib
+modules
+test-result
+tmp
