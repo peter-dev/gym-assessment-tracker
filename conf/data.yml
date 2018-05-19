@@ -1,0 +1,71 @@
+Trainer(t1):
+  name: Bob Harper
+  email: bob.harper@trainer.com
+  password: trainer
+
+Trainer(t2):
+  name: Lou Ferrigno
+  email: lou.ferrigno@trainer.com
+  password: trainer
+
+Assessment(a1):
+  weight: 82
+  chest: 91
+  thigh: 48
+  upperArm: 33
+  waist: 64
+  hips: 77
+  comment: First day in Gym. Well done.
+  timeStamp: 2018-04-25 14:20:40
+
+
+Assessment(a2):
+  weight: 48
+  chest: 0
+  thigh: 0
+  upperArm: 0
+  waist: 0
+  hips: 0
+  comment: First day in Gym. Well done.
+  timeStamp: 2018-04-10 12:30:00
+
+Assessment(a3):
+  weight: 47
+  chest: 0
+  thigh: 0
+  upperArm: 0
+  waist: 0
+  hips: 0
+  comment: Well done. You achieved your goal.
+  timeStamp: 2018-04-20 12:30:00
+
+
+Member(m1):
+  name: Piotr Baran
+  email: piotr.baran@student.com
+  password: student
+  gender: m
+  height: 180
+  startWeight: 82
+  assessments:
+  - a1
+
+Member(m2):
+  name: Tara Baran
+  email: tara.baran@student.com
+  password: student
+  gender: f
+  height: 1.6
+  startWeight: 50
+  assessments:
+  - a2
+  - a3
+
+Member(m3):
+  name: Peter McCarthy
+  email: peter.mccarthy@student.com
+  password: student
+  gender: m
+  height: 1.8
+  startWeight: 75
+  assessments:
