@@ -44,7 +44,8 @@ Member(m1):
   name: Piotr Baran
   email: piotr.baran@student.com
   password: student
-  gender: m
+  address: Cork, Ireland
+  gender: M
   height: 180
   startWeight: 82
   assessments:
@@ -54,8 +55,9 @@ Member(m2):
   name: Tara Baran
   email: tara.baran@student.com
   password: student
-  gender: f
-  height: 1.6
+  address: Cork, Ireland
+  gender: F
+  height: 165
   startWeight: 50
   assessments:
   - a2
@@ -65,7 +67,8 @@ Member(m3):
   name: Peter McCarthy
   email: peter.mccarthy@student.com
   password: student
-  gender: m
-  height: 1.8
+  address: Waterford, Ireland
+  gender: M
+  height: 180
   startWeight: 75
   assessments:

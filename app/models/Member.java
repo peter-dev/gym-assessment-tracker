@@ -5,15 +5,12 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import play.db.jpa.Model;
 
 /** @author Piotr Baran */
 @Entity
-public class Member extends Model {
+public class Member extends Person {
 
-  private String name;
-  private String email;
-  private String password;
+  private String address;
   private String gender;
   private float height;
   private float startWeight;
@@ -22,38 +19,27 @@ public class Member extends Model {
   private List<Assessment> assessments;
 
   public Member(
-      String name, String email, String password, String gender, float height, float startWeight) {
-    this.name = name;
-    this.email = email;
-    this.password = password;
+      String name,
+      String email,
+      String password,
+      String address,
+      String gender,
+      float height,
+      float startWeight) {
+    super(name, email, password);
+    this.address = address;
     this.gender = gender;
     this.height = height;
     this.startWeight = startWeight;
     this.assessments = new ArrayList<>();
   }
 
-  public String getName() {
-    return name;
+  public String getAddress() {
+    return address;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
+  public void setAddress(String address) {
+    this.address = address;
   }
 
   public String getGender() {
@@ -86,5 +72,22 @@ public class Member extends Model {
 
   public void setAssessments(List<Assessment> assessments) {
     this.assessments = assessments;
+  }
+
+  @Override
+  public String toString() {
+    return "\nName:             "
+        + name
+        + "\nEmail:            "
+        + email
+        + "\nAddress:          "
+        + address
+        + "\nGender:           "
+        + gender
+        + "\nHeight:           "
+        + height
+        + " m"
+        + "\nStart Weight:     "
+        + startWeight;
   }
 }

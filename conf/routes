@@ -5,6 +5,18 @@
 # Home page
 GET     /                                       Application.index
 
+GET     /signup                                 Accounts.signup
+GET     /login                                  Accounts.login
+GET     /logout                                 Accounts.logout
+POST    /register                               Accounts.register
+POST    /authenticate                           Accounts.authenticate
+
+GET     /dashboard                              Dashboard.index
+
+GET     /about                                  About.index
+
+GET     /admin                                  Admin.index
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 

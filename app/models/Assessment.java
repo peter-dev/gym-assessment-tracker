@@ -2,6 +2,8 @@ package models;
 
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import play.db.jpa.Model;
 
 /** @author Piotr Baran */
@@ -23,19 +25,17 @@ public class Assessment extends Model {
       float thigh,
       float upperArm,
       float waist,
-      float hips,
-      Date timeStamp) {
+      float hips) {
     this.weight = weight;
     this.chest = chest;
     this.thigh = thigh;
     this.upperArm = upperArm;
     this.waist = waist;
     this.hips = hips;
-    this.timeStamp = timeStamp;
+    this.timeStamp = new Date();
   }
 
   public float getWeight() {
-
     return weight;
   }
 
