@@ -1,6 +1,5 @@
 package controllers;
 
-import com.oracle.tools.packager.Log;
 import models.Member;
 import models.Person;
 import models.Trainer;
@@ -68,21 +67,21 @@ public class Accounts extends Controller {
       switch (userType) {
         case MEMBER:
           person = Member.findById(Long.parseLong(personId));
-          Log.info("Switch Member");
           break;
         case TRAINER:
           person = Trainer.findById(Long.parseLong(personId));
-          Log.info("Switch Trainer");
           break;
       }
     }
     /*
-     Application did not identify correct user privileges, i.e
-     Member tries to access /admin page but Member ia not a Trainer
-      */
-    if (person == null) { session.clear(); login(); }
+    Application did not identify correct user privileges, i.e
+    Member tries to access /admin page but Member ia not a Trainer
+     */
+    if (person == null) {
+      session.clear();
+      redirect("/login");
+    }
 
     return person;
   }
-
 }

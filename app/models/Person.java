@@ -1,10 +1,12 @@
 package models;
 
-import javax.persistence.Entity;
 import javax.persistence.MappedSuperclass;
 import play.db.jpa.Model;
 
 /**
+ * This class stores email, name and password. The email is used to uniquely identify a person in
+ * the system.
+ *
  * @author Piotr Baran
  */
 @MappedSuperclass

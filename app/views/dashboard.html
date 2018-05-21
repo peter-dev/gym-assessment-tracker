@@ -3,11 +3,39 @@
 
 #{membermenu /}
 
-<section class="ui center aligned middle aligned segment">
-  <h1 class="ui header">
-    Dashboard Home Page: ${member.getName()}
-  </h1>
-  <p>
-    To be replaced with content...
-  </p>
+<section class="ui segment">
+  <div class="ui three column center aligned middle aligned grid segment">
+    <div class="ui column">
+      <div class="ui statistic">
+        <div class="value">
+          <i class="user icon"></i>
+        </div>
+        <div class="label">
+        ${member.getName()}
+        </div>
+      </div>
+    </div>
+    <div class="ui column">
+      <div class="ui statistic">
+        <div class="value">
+          <i class="heartbeat icon"></i> ${member.getCurrentBmi()}
+        </div>
+        <div class="label">
+          BMI
+        </div>
+      </div>
+    </div>
+    <div class="ui column">
+      <div class="ui statistic">
+        <div class="value">
+          <i class="user md icon"></i>
+        </div>
+        <div class="label">
+        ${member.getCurrentBmiCategory()}
+        </div>
+      </div>
+    </div>
+  </div>
+  #{addassessment /}
+  #{listassessments assessments:member.getSortedAssessments()/}
 </section>

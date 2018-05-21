@@ -1,12 +1,16 @@
 package models;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import play.db.jpa.Model;
 
-/** @author Piotr Baran */
+/**
+ * It stores weight, chest, thigh, upper arm, waist, hips, comment and time stamp that uniquely
+ * identifies the assessment in the system.
+ *
+ * @author Piotr Baran
+ */
 @Entity
 public class Assessment extends Model {
 
@@ -20,12 +24,7 @@ public class Assessment extends Model {
   private Date timeStamp;
 
   public Assessment(
-      float weight,
-      float chest,
-      float thigh,
-      float upperArm,
-      float waist,
-      float hips) {
+      float weight, float chest, float thigh, float upperArm, float waist, float hips) {
     this.weight = weight;
     this.chest = chest;
     this.thigh = thigh;
@@ -33,6 +32,16 @@ public class Assessment extends Model {
     this.waist = waist;
     this.hips = hips;
     this.timeStamp = new Date();
+  }
+
+  /**
+   * Returns Assessment's time stamp as String formatted in the following way: dd-MMM-yyyy hh:mm:ss
+   *
+   * @return time stamp as String
+   */
+  public String getFormattedDate() {
+    SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy hh:mm:ss");
+    return sdf.format(timeStamp);
   }
 
   public float getWeight() {
@@ -97,5 +106,25 @@ public class Assessment extends Model {
 
   public void setTimeStamp(Date timeStamp) {
     this.timeStamp = timeStamp;
+  }
+
+  @Override
+  public String toString() {
+    return "\nDate:             "
+        + getFormattedDate()
+        + "\nWeight:           "
+        + weight
+        + "\nChest:            "
+        + chest
+        + "\nThigh:            "
+        + thigh
+        + "\nUpper Arm:        "
+        + upperArm
+        + "\nWaist:            "
+        + waist
+        + "\nHips:            "
+        + hips
+        + "\nComment:          "
+        + comment;
   }
 }

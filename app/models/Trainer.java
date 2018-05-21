@@ -2,7 +2,11 @@ package models;
 
 import javax.persistence.Entity;
 
-/** @author Piotr Baran */
+/**
+ * Subclass of Person. No additional fields.
+ *
+ * @author Piotr Baran
+ */
 @Entity
 public class Trainer extends Person {
 
