@@ -9,7 +9,7 @@ Trainer(t2):
   password: trainer
 
 Assessment(a1):
-  weight: 82
+  weight: 78.5
   chest: 91
   thigh: 48
   upperArm: 33
@@ -46,7 +46,7 @@ Member(m1):
   password: student
   address: Cork, Ireland
   gender: M
-  height: 180
+  height: 184
   startWeight: 82
   assessments:
   - a1

@@ -83,7 +83,7 @@ public class GymUtility {
 
     // member weight and height
     float weightInKg = assessment.getWeight();
-    float heightInInch = metreToInchConversion(member.getHeight());
+    float heightInInch = metreToInchConversion(member.getHeight() / 100);
     String gender = member.getGender();
 
     // formula values

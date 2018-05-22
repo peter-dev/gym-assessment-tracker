@@ -4,7 +4,7 @@
 #{membermenu /}
 
 <section class="ui segment">
-  <div class="ui three column center aligned middle aligned grid segment">
+  <div class="ui four column center aligned middle aligned grid segment">
     <div class="ui column">
       <div class="ui statistic">
         <div class="value">
@@ -12,6 +12,24 @@
         </div>
         <div class="label">
         ${member.getName()}
+        </div>
+      </div>
+    </div>
+    <div class="ui column">
+      <div class="ui statistic">
+        <div class="value">
+          #{if member.getLatestAssessment() == null}
+          <i class="tachometer alternate icon"></i>
+          #{/if}
+          #{elseif member.isIdealBodyWeight()}
+            <i class="green tachometer alternate icon"></i>
+          #{/elseif}
+          #{else}
+            <i class="red tachometer alternate icon"></i>
+          #{/else}
+        </div>
+        <div class="label">
+        IDEAL WEIGHT INDICATOR
         </div>
       </div>
     </div>

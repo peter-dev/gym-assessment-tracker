@@ -75,7 +75,7 @@ public class Accounts extends Controller {
     }
     /*
     Application did not identify correct user privileges, i.e
-    Member tries to access /admin page but Member ia not a Trainer
+    Member tries to access /admin page but Member is not a Trainer
      */
     if (person == null) {
       session.clear();
