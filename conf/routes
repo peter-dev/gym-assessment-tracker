@@ -8,8 +8,10 @@ GET     /                                                   Application.index
 GET     /signup                                             Accounts.signup
 GET     /login                                              Accounts.login
 GET     /logout                                             Accounts.logout
+GET     /settings                                           Accounts.settings
 POST    /register                                           Accounts.register
 POST    /authenticate                                       Accounts.authenticate
+POST    /update                                             Accounts.update
 
 GET     /dashboard                                          Dashboard.index
 GET     /dashboard/deleteassessment/{id}                    Dashboard.deleteAssessment

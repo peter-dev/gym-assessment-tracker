@@ -1,15 +1,15 @@
-<table class="ui table fixed">
+<table class="ui table">
   <thead>
   <tr>
-    <th>Date</th>
-    <th>Weight</th>
-    <th>Chest</th>
-    <th>Thigh</th>
-    <th>Upper Arm</th>
-    <th>Waist</th>
-    <th>Hips</th>
+    <th class="three wide">Date</th>
+    <th class="one wide">Weight</th>
+    <th class="one wide">Chest</th>
+    <th class="one wide">Thigh</th>
+    <th class="one wide">Arm</th>
+    <th class="one wide">Waist</th>
+    <th class="one wide">Hips</th>
     <th>Comment</th>
-    <th></th>
+    <th class="one wide"></th>
   </tr>
   </thead>
   <tbody>
@@ -23,8 +23,13 @@
     <td>${assessment.getWaist()}</td>
     <td>${assessment.getHips()}</td>
     <td>${assessment.getComment()}</td>
-    <td><a href="/dashboard/deleteassessment/${assessment.id}"><button class="ui icon button"><i class="trash alternate icon"></i></button></a></td>
+    <td><a href="/dashboard/deleteassessment/${assessment.id}">
+      <button class="ui icon button"><i class="trash alternate icon"></i></button>
+    </a></td>
   </tr>
   #{/list}
   </tbody>
+  <tfoot>
+  <tr><th colspan="9">Total Assessments: ${_assessments.size()}</th></tr>
+  </tfoot>
 </table>

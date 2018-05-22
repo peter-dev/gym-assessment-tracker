@@ -20,6 +20,13 @@ public class Accounts extends Controller {
     render("login.html");
   }
 
+  public static void settings() {
+    Logger.info("Rendering Accounts -> Settings");
+    // get member details to pre-populate form fields in a view
+    Member member = (Member) Accounts.getLoggedInPerson(UserType.MEMBER);
+    render("settings.html", member);
+  }
+
   public static void logout() {
     session.clear();
     redirect("/");
@@ -33,9 +40,9 @@ public class Accounts extends Controller {
       String gender,
       float height,
       float startWeight) {
-    Logger.info("Registering new user " + email);
     Member member = new Member(name, email, password, address, gender, height, startWeight);
     member.save();
+    Logger.info("Registering new user " + email);
     redirect("/dashboard");
   }
 
@@ -51,12 +58,30 @@ public class Accounts extends Controller {
       session.put("logged_in_Personid", person.id);
       if (person instanceof Member) redirect("/dashboard");
       if (person instanceof Trainer) redirect("/admin");
-
-      redirect("/");
     } else {
       Logger.info("Authentication failed");
       redirect("/login");
     }
+  }
+
+  public static void update(
+      String name,
+      String password,
+      String address,
+      String gender,
+      float height,
+      float startWeight) {
+
+    Member member = (Member) Accounts.getLoggedInPerson(UserType.MEMBER);
+    // identify fields that were updated
+    if (name != null && !name.isEmpty()) member.setName(name);
+    if (password != null && !password.isEmpty()) member.setPassword(password);
+    if (address != null && !address.isEmpty()) member.setAddress(address);
+    if (gender != null && !gender.isEmpty()) member.setGender(gender);
+    if (height != 0.0f) member.setHeight(height);
+    if (startWeight != 0.0f) member.setStartWeight(startWeight);
+    member.save();
+    render("dashboard.html", member);
   }
 
   public static Person getLoggedInPerson(UserType userType) {

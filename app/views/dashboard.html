@@ -36,7 +36,13 @@
     <div class="ui column">
       <div class="ui statistic">
         <div class="value">
-          <i class="heartbeat icon"></i> ${member.getCurrentBmi()}
+          <i class="heartbeat icon"></i>
+          #{if member.getLatestAssessment() == null}
+            N/A
+          #{/if}
+          #{else}
+            ${member.getCurrentBmi()}
+          #{/else}
         </div>
         <div class="label">
           BMI
