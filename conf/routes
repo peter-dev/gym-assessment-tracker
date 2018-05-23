@@ -12,6 +12,7 @@ GET     /settings                                           Accounts.settings
 POST    /register                                           Accounts.register
 POST    /authenticate                                       Accounts.authenticate
 POST    /update                                             Accounts.update
+GET     /deletemember/{id}                                  Accounts.deleteMember
 
 GET     /dashboard                                          Dashboard.index
 GET     /dashboard/deleteassessment/{id}                    Dashboard.deleteAssessment

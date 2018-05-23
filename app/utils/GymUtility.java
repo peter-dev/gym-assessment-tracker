@@ -1,5 +1,5 @@
 package utils;
-import java.text.DecimalFormat;
+
 import models.Assessment;
 import models.Member;
 
@@ -45,8 +45,7 @@ public class GymUtility {
   public static double calculateBMI(Member member, Assessment assessment) {
     float weight = assessment.getWeight();
     float height = member.getHeight() / 100;
-    double bmi = (double) weight / Math.pow(height, 2);
-    return bmi;
+    return (double) weight / Math.pow(height, 2);
   }
 
   /**
