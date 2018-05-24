@@ -12,16 +12,17 @@ GET     /settings                                           Accounts.settings
 POST    /register                                           Accounts.register
 POST    /authenticate                                       Accounts.authenticate
 POST    /update                                             Accounts.update
-GET     /deletemember/{id}                                  Accounts.deleteMember
 
 GET     /dashboard                                          Dashboard.index
 GET     /dashboard/deleteassessment/{id}                    Dashboard.deleteAssessment
 POST    /dashboard/addassessment                            Dashboard.addAssessment
 
-
 GET     /about                                              About.index
 
 GET     /admin                                              Admin.index
+GET     /admin/members/{memberid}                           Admin.showMember
+GET     /admin/deletemember/{memberid}                      Admin.deleteMember
+POST    /admin/members/{memberid}/updateassessment/{id}     Admin.updateAssessment
 
 # Ignore favicon requests
 GET     /favicon.ico                                        404

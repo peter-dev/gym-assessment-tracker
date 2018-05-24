@@ -23,7 +23,7 @@ public class Accounts extends Controller {
   }
 
   /**
-   * Retrieves currently logged in gym member and renders the app/views/settings.html template;
+   * Retrieves currently logged in gym member and renders the app/views/settings.html template; it
    * passes the member details to the view so the form can be pre-populated
    */
   public static void settings() {
@@ -38,7 +38,7 @@ public class Accounts extends Controller {
   }
 
   /**
-   * Registers new Member in the system and redirects to the app/views/dashboard.html template
+   * Registers new Member in the system and redirects to the app/views/login.html template
    *
    * @param name
    * @param email
@@ -59,13 +59,13 @@ public class Accounts extends Controller {
     Member member = new Member(name, email, password, address, gender, height, startWeight);
     member.save();
     Logger.info("Registering new user " + email);
-    redirect("/dashboard");
+    redirect("/login");
   }
 
   /**
    * Authenticates user email and password, if user is a Trainer, redirects to the
    * app/views/admin.html template if user is a Member, redirects to the app/views/dashboard.html
-   * template if password is not matching, edirects to the app/views/login.html template
+   * template, if password is not matching, redirects to the app/views/login.html template
    *
    * @param email
    * @param password
@@ -89,7 +89,7 @@ public class Accounts extends Controller {
   }
 
   /**
-   * Updates member profile and redirects to the app/views/dashboard.html template
+   * Updates gym member profile and redirects to the app/views/dashboard.html template
    *
    * @param name
    * @param password
@@ -107,7 +107,7 @@ public class Accounts extends Controller {
       float startWeight) {
 
     Member member = (Member) Accounts.getLoggedInPerson(UserType.MEMBER);
-    // identify fields that were updated
+    // identify fields that need to be updated
     if (member != null) {
       if (name != null && !name.isEmpty()) member.setName(name);
       if (password != null && !password.isEmpty()) member.setPassword(password);
@@ -117,21 +117,7 @@ public class Accounts extends Controller {
       if (startWeight != 0.0f) member.setStartWeight(startWeight);
       member.save();
     }
-    render("dashboard.html", member);
-  }
-
-  /**
-   * Deletes requested Member along with all Assessments assigned to the Member and redirects to the
-   * app/views/admin.html template
-   *
-   * @param id unique id of the Member to be deleted
-   */
-  public static void deleteMember(Long id) {
-    Trainer trainer = (Trainer) Accounts.getLoggedInPerson(UserType.TRAINER);
-    Member member = Member.findById(id);
-    member.delete();
-    Logger.info("Deleting member " + member.getName());
-    redirect("/admin");
+    redirect("/dashboard");
   }
 
   /**

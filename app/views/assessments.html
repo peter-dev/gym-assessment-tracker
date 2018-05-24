@@ -1,0 +1,17 @@
+#{extends 'main.html' /}
+#{set title:'Admin' /}
+#{menu_admin id:"admin"/}
+
+<section class="ui segment">
+  #{member_stats member:member/}
+</section>
+<section class="ui segment">
+  #{if member.getSortedAssessments().isEmpty()}
+    <p>No registered assessments.</p>
+  #{/if}
+  #{else}
+    #{list items:member.getSortedAssessments(), as:'assessment'}
+      #{admin_assessments assessment:assessment, member:member/}
+    #{/list}
+  #{/else}
+</section>

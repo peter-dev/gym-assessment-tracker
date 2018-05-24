@@ -1,12 +1,12 @@
 #{extends 'main.html' /}
 #{set title:'Admin' /}
-#{adminmenu id:"admin"/}
+#{menu_admin id:"admin"/}
 
 <section class="ui segment">
   #{if members.size() == 0}
     <p>No registered members.</p>
   #{/if}
   #{else}
-    #{listmembers members:members/}
+    #{admin_members members:members/}
   #{/else}
 </section>

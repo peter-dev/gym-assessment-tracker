@@ -1,9 +1,9 @@
 #{extends 'main.html' /}
 #{set title:'Dashboard' /}
-#{membermenu id:"dashboard"/}
+#{menu_member id:"dashboard"/}
 
 <section class="ui segment">
-  #{memberstats member:member/}
+  #{member_stats member:member/}
   #{addassessment /}
-  #{listassessments assessments:member.getSortedAssessments()/}
+  #{member_assessments assessments:member.getSortedAssessments()/}
 </section>

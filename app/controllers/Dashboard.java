@@ -16,7 +16,7 @@ public class Dashboard extends Controller {
   }
 
   /**
-   * Adds new Assessment to the gym member that is currently logged in and redirects to the
+   * Adds new Assessment to currently logged in gym member and redirects to the
    * app/views/dashboard.html template
    *
    * @param weight
@@ -33,12 +33,12 @@ public class Dashboard extends Controller {
     member.getAssessments().add(assessment);
     assessment.save();
     Logger.info("Adding new Assessment " + assessment.getFormattedDate());
-    redirect("/dashboard");
+    index();
   }
 
   /**
-   * Deletes requested Assessment that belongs to currently logged in gym member and redirects to
-   * the app/views/dashboard.html template
+   * Deletes Assessment that belongs to currently logged in gym member and redirects to the
+   * app/views/dashboard.html template
    *
    * @param id unique id of the Assessment to be deleted
    */
@@ -49,6 +49,6 @@ public class Dashboard extends Controller {
     member.save();
     assessment.delete();
     Logger.info("Deleting assessment " + assessment.getFormattedDate());
-    redirect("/dashboard");
+    index();
   }
 }

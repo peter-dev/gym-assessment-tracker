@@ -1,0 +1,33 @@
+<table class="ui table">
+  <thead>
+  <tr>
+    <th class="three wide">Date</th>
+    <th>Weight</th>
+    <th>Chest</th>
+    <th>Thigh</th>
+    <th>Arm</th>
+    <th>Waist</th>
+    <th>Hips</th>
+    <th class="five wide">Comment</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>${_assessment.getFormattedDate()}</td>
+    <td>${_assessment.getWeight()}</td>
+    <td>${_assessment.getChest()}</td>
+    <td>${_assessment.getThigh()}</td>
+    <td>${_assessment.getUpperArm()}</td>
+    <td>${_assessment.getWaist()}</td>
+    <td>${_assessment.getHips()}</td>
+    <td>${_assessment.getComment()}</td>
+  </tr>
+  </tbody>
+</table>
+<form class="ui form" action="/admin/members/${_member.getId()}/updateassessment/${_assessment.getId()}" method="POST">
+  <div class="field">
+    <label>Comments</label>
+    <textarea rows="2" placeholder="Comment" name="comment" required></textarea>
+  </div>
+  <button class="ui blue submit button">Update</button>
+</form>
