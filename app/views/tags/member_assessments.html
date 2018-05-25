@@ -8,6 +8,7 @@
     <th class="one wide">Arm</th>
     <th class="one wide">Waist</th>
     <th class="one wide">Hips</th>
+    <th class="one wide">Trend</th>
     <th>Comment</th>
     <th class="one wide"></th>
   </tr>
@@ -22,6 +23,17 @@
     <td>${assessment.getUpperArm()}</td>
     <td>${assessment.getWaist()}</td>
     <td>${assessment.getHips()}</td>
+    <td>
+      #{if assessment.getTrend() == 0 }
+        <i class="big angle double right icon"></i>
+      #{/if}
+      #{elseif assessment.getTrend() < 0 }
+        <i class="big green angle double right icon"></i>
+      #{/elseif}
+      #{else}
+        <i class="big red angle double left icon"></i>
+      #{/else}
+    </td>
     <td>${assessment.getComment()}</td>
     <td><a href="/dashboard/deleteassessment/${assessment.id}">
       <div class="ui icon button"><i class="trash alternate icon"></i></div>
@@ -30,6 +42,6 @@
   #{/list}
   </tbody>
   <tfoot>
-  <tr><th colspan="9">Total Assessments: ${_assessments.size()}</th></tr>
+  <tr><th colspan="10">Total Assessments: ${_assessments.size()}</th></tr>
   </tfoot>
 </table>

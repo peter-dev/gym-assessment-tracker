@@ -8,6 +8,7 @@
     <th>Arm</th>
     <th>Waist</th>
     <th>Hips</th>
+    <th>Trend</th>
     <th class="five wide">Comment</th>
   </tr>
   </thead>
@@ -20,6 +21,17 @@
     <td>${_assessment.getUpperArm()}</td>
     <td>${_assessment.getWaist()}</td>
     <td>${_assessment.getHips()}</td>
+    <td>
+    #{if _assessment.getTrend() == 0 }
+      <i class="big angle double right icon"></i>
+    #{/if}
+    #{elseif _assessment.getTrend() < 0 }
+      <i class="big green angle double right icon"></i>
+    #{/elseif}
+    #{else}
+      <i class="big red angle double left icon"></i>
+    #{/else}
+    </td>
     <td>${_assessment.getComment()}</td>
   </tr>
   </tbody>

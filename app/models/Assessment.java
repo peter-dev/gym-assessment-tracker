@@ -20,6 +20,7 @@ public class Assessment extends Model {
   private float upperArm;
   private float waist;
   private float hips;
+  private int trend;
   private String comment;
   private Date timeStamp;
 
@@ -31,6 +32,7 @@ public class Assessment extends Model {
     this.upperArm = upperArm;
     this.waist = waist;
     this.hips = hips;
+    this.trend = 0;
     this.timeStamp = new Date();
   }
 
@@ -90,6 +92,14 @@ public class Assessment extends Model {
 
   public void setHips(float hips) {
     this.hips = hips;
+  }
+
+  public int getTrend() {
+    return trend;
+  }
+
+  public void setTrend(int trend) {
+    this.trend = trend;
   }
 
   public String getComment() {

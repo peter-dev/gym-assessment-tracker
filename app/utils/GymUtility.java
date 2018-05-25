@@ -1,5 +1,6 @@
 package utils;
 
+import java.util.List;
 import models.Assessment;
 import models.Member;
 
@@ -108,6 +109,31 @@ public class GymUtility {
   }
 
   /**
+   * Returns an integer to determine if trend is up (1), down (-1), or no change (0)
+   *
+   * @param member a representation of a gym member
+   * @param newEntry new assessment being added to the system
+   * @return
+   */
+  public static int determineTrend(Member member, Assessment newEntry) {
+    List<Assessment> sortedAssessments = member.getSortedAssessments();
+
+    if (sortedAssessments.isEmpty()) {
+      // no previous assessments available, compare to the starting weight
+      if (newEntry.getWeight() > member.getStartWeight()) return 1;
+      if (newEntry.getWeight() < member.getStartWeight()) return -1;
+      // default, no change
+      return 0;
+    } else {
+      // at least one previous assessment available, compare with the last entry
+      if (newEntry.getWeight() > sortedAssessments.get(0).getWeight()) return 1;
+      if (newEntry.getWeight() < sortedAssessments.get(0).getWeight()) return -1;
+      // default, no change
+      return 0;
+    }
+  }
+
+  /**
    * Converts height in meters to inches.
    *
    * @param lengthMeters length in meters as float
@@ -117,5 +143,4 @@ public class GymUtility {
     // 1 metre = 39.3701 inch
     return (lengthMeters * 39.3701f);
   }
-
 }

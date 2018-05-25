@@ -15,6 +15,7 @@ Assessment(a1):
   upperArm: 33
   waist: 64
   hips: 77
+  trend: -1
   comment: First day in Gym. Well done.
   timeStamp: 2018-04-25 14:20:40
 
@@ -26,6 +27,7 @@ Assessment(a2):
   upperArm: 0
   waist: 0
   hips: 0
+  trend: -1
   comment: First day in Gym. Well done.
   timeStamp: 2018-04-10 12:30:00
 
@@ -36,7 +38,8 @@ Assessment(a3):
   upperArm: 0
   waist: 0
   hips: 0
-  comment: Well done. You achieved your goal.
+  trend: -1
+  comment: Well done. Keep going.
   timeStamp: 2018-04-20 12:30:00
 
 

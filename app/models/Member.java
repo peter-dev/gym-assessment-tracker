@@ -90,11 +90,12 @@ public class Member extends Person {
 
   /**
    * Uses GymUtility Class to determine if member has ideal weight
+   *
    * @return true if ideal, false if not ideal
    */
   public boolean isIdealBodyWeight() {
-    return (assessments != null && !assessments.isEmpty()) && GymUtility
-        .isIdealBodyWeight(this, getLatestAssessment());
+    return (assessments != null && !assessments.isEmpty())
+        && GymUtility.isIdealBodyWeight(this, getLatestAssessment());
   }
 
   public String getAddress() {
