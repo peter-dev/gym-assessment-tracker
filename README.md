@@ -16,7 +16,7 @@ All requirements met with exception of trend calculation.
 | Baseline | Member model: name, email, password, address, gender, height, startingweight. Single member loaded from yaml; Multiple Assessments associated with single user in yaml file. Form to add more assessments in UX; +Current BMI | OK |
 | Good | Signup + Login forms allowing new members to singup; Dashboard shows assessments for logged in user; +BMI Category; Deployed | OK | 
 | Excellent | Account Settings View allowing user to change details; includes comment field; Trainer Accounts (preloaded from yaml). Trainer logs in and can see member list. Trainer can then see assessments for a user and can comment on an assessment; +ideal Body Weight; basic git repo; utility | OK |
-| Outstanding | Members can delete individual assessments; Date/Time for each assessment. Assessment always listed in reverse; Trainers can delete any user; +Trend via simple red/ green label; git repo with version history; utility+ | OK (trend not implemented) |
+| Outstanding | Members can delete individual assessments; Date/Time for each assessment. Assessment always listed in reverse; Trainers can delete any user; +Trend via simple red/ green label; git repo with version history; utility+ | OK |
 
 ### Resources:
 
